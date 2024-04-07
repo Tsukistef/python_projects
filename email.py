@@ -43,9 +43,7 @@ def read_email(index):
     elif index == 1:
         print(inbox[index])
     elif index == 2:
-        print(inbox[index]) 
-    else:
-        print('Incorrect input. Try again')           
+        print(inbox[index])           
     # Once displayed, call the class method to set its 'has_been_read' variable to True.
     inbox[index].has_been_read = True
     print(f"\nEmail from {inbox[index].email_address} has been read!")
@@ -67,12 +65,21 @@ while menu == True:
         # add logic here to read an email
         menu = False
         list_emails(inbox) #subjects
+        valid_num = False
         index = int(input('\nPlease select email to read - enter number: '))
+        while valid_num == False:
+            if 0 <= index < len(inbox):
+                valid_num = True
+                email_summary = inbox[index].email_address + '\n' + inbox[index].subject_line + '\n' + inbox[index].email_content 
+                print(email_summary)
+                inbox[index].has_been_read = True
+                menu = True
+            else:
+                valid_num = False
+                index = int(input('\nIncorrect selection. \nPlease select email to read - enter number: '))
+            
         # take all attributes of selected email class and combine into one string, then print that string
-        email_summary = inbox[index].email_address + '\n' + inbox[index].subject_line + '\n' + inbox[index].email_content 
-        print(email_summary)
-        inbox[index].has_been_read = True
-        menu = True
+
 
     elif user_choice == 2:
         # add logic here to view unread emails
