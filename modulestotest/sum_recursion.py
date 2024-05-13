@@ -1,6 +1,6 @@
 '''Practical Task 1 - Recursion'''
 # Create a function that takes a list of integers and a single integer as arguments.
-# single integer 'i' represent the index point. The function will calculate the sum of the numbers up to the index.
+# single integer 'i' represent the index point.
 def adding_up_to(list_num, i):
     # Conditional statements for base case
     if i <= 0:
